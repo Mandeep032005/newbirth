@@ -1,0 +1,156 @@
+/* Update font styles */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700&display=swap');
+
+/* Base styles from previous step */
+body {
+    background: linear-gradient(to bottom, #ff69b4, #8a2be2); /* Pink to purple gradient */
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    margin: 0;
+    text-align: center;
+    overflow: hidden; /* Prevent scrollbars during transitions */
+}
+
+/* Screen and container styling */
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+    background: linear-gradient(to bottom, #ff69b4, #8a2be2);
+}
+
+.screen.hidden {
+    opacity: 0;
+    pointer-events: none; /* Disable interaction when hidden */
+    transform: translateY(100vh); /* Start off-screen */
+}
+
+.container {
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+}
+
+/* Specific screen styles */
+#screen1 .intro-text {
+    font-size: 2em;
+    animation: fadeIn 2s forwards;
+}
+
+.next-btn {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: #ff6347; /* A vibrant button color */
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 50px; /* Rounded corners for a softer look */
+    margin-top: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 1s 2s forwards;
+}
+
+.next-btn:hover {
+    transform: translateY(-5px); /* Lift the button on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Greeting and message styles */
+#greeting {
+    font-family: 'Pacifico', cursive; /* A script font for a personal touch */
+    font-size: 3em;
+    color: #ffd700; /* A golden color for the greeting */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds depth */
+    margin-bottom: 20px;
+    animation: fadeInScale 1s ease-out; /* Main greeting animation */
+}
+
+#message-container p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2em;
+    font-weight: 700; /* Make the text bold */
+    margin: 10px 0;
+    opacity: 0; /* Start with messages hidden */
+    animation: slideIn 0.8s forwards; /* Animation for each message */
+}
+
+/* Delay for each message to appear sequentially */
+#message-container p:nth-child(1) { animation-delay: 0.5s; }
+#message-container p:nth-child(2) { animation-delay: 1.5s; }
+#message-container p:nth-child(3) { animation-delay: 2.5s; }
+#message-container p:nth-child(4) { animation-delay: 3.5s; }
+
+/* Highlighted message */
+#message-container p.highlight {
+    color: #ff4500; /* Use a bright color to highlight */
+    transform: scale(1.1); /* Make it slightly larger */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Carousel styles */
+.carousel-container {
+    width: 80%;
+    height: 80%;
+    perspective: 1000px; /* Gives a 3D effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#photo-carousel {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: rotateCarousel 20s infinite linear;
+}
+
+.carousel-photo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotateCarousel {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+}
