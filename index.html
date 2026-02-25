@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="screen" id="screen1">
+        <div class="container">
+            <p class="intro-text">POV :- It's Her B'day ✨<br>But, You Can't Meet Her...💔</p>
+            <button class="next-btn" onclick="nextScreen()">Build Something Special</button>
+        </div>
+    </div>
+
+    <div class="screen hidden" id="screen3">
+        <div class="container">
+            <p id="greeting"></p>
+            <div id="message-container"></div>
+            <button class="next-btn" onclick="showCarousel()" style="display: none;">Surprise!</button>
+        </div>
+    </div>
+
+    <div class="screen hidden" id="screen4">
+        <div class="carousel-container">
+            <div id="photo-carousel"></div>
+        </div>
+        <audio id="background-music" src="Maroon Color Sadiya Fasal 320 Kbps-[AudioTrimmer.com].mp3" loop autoplay></audio>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
